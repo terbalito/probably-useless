@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probably Useless</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --anthracite: #1a1a1a;
+            --border-color: #333333;
+            --accent: #ffffff;
+        }
+        body {
+            background-color: var(--anthracite);
+            color: #d1d1d1;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            height: 100dvh;
+        }
+        .mono { font-family: 'JetBrains+Mono', monospace; }
+        .brutalist-border { border: 1px solid var(--border-color); }
+        .btn-brutalist {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .btn-brutalist:hover {
+            background: var(--accent);
+            color: var(--anthracite);
+        }
+        .input-brutalist {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .input-brutalist:focus {
+            border-color: var(--accent);
+        }
+        .fade-in { animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            border: 1px solid #444;
+            padding: 0.75rem 1.5rem;
+            z-index: 100;
+            display: none;
+        }
+        .nav-link {
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .main-content { padding: 1rem; }
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center p-6 brutalist-border border-t-0 border-x-0">
+        <div class="flex gap-6 items-center">
+            <a href="#" data-page="home" class="nav-link active font-bold text-sm mono">HOME</a>
+            <a href="#" data-page="history" class="nav-link font-bold text-sm mono">HISTORY</a>
+            <!-- <a href="#" data-page="comments" class="nav-link font-bold text-sm mono">RECORDS</a> -->
+            <!-- <a href="#" data-page="registry" class="nav-link font-bold text-sm mono">REGISTRY</a> -->
+            <a href="#" data-page="about" class="nav-link font-bold text-sm mono">ABOUT</a>
+        </div>
+        <div class="flex gap-4 items-center">
+            <select id="lang-switcher" class="bg-transparent border-none text-xs mono uppercase cursor-pointer outline-none opacity-60 hover:opacity-100">
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+            </select>
+            <div id="q-counter" class="text-xs mono opacity-40">Q: 0</div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main id="app-container" class="flex-grow flex flex-col items-center justify-center main-content p-4">
+        <!-- Views will be injected here -->
+    </main>
+
+    <!-- Toasts -->
+    <div id="toast-notif" class="toast mono text-xs uppercase tracking-widest"></div>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide": "https://esm.sh/lucide",
+        "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
+        "dompurify": "https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js"
+      }
+    }
+    </script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
