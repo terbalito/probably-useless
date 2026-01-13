@@ -378,9 +378,14 @@ class App {
                         navigator.clipboard.writeText(shareUrl);
                         this.showToast("Link copied to clipboard.");
                     } else if (platform === 'x') {
-                        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+                        window.open(
+                        `https://twitter.com/intent/tweet?text=${encodeURIComponent("Découvre ce quiz introspectif !")}%20${encodeURIComponent("https://terbalito.github.io/probably-useless/#response/mkbx8la1")}`,
+                        '_blank'
+                        );
+
                     } else if (platform === 'linkedin') {
-                        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+                        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://terbalito.github.io/probably-useless/#response/mkbx8la1")}`, '_blank');
+
                     }
 
                 // Sharing logic
