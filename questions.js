@@ -1,6 +1,12 @@
 export const DATA = {
     ui: {
         en: {
+            pageTitle: "You are probably useless.",
+            pageSubtitle: "Don't worry, almost everyone is.",
+            aboutArticleLink: {
+                title: "Read more about the 92.4% statistic",
+                url: "https://medium.com/@tonprofil/92-4-of-humans-are-probably-useless-article"
+            },
             subtitle: "Self-assessment",
             questionLabel: "Subject Query",
             placeholder: "Input optional...",
@@ -34,6 +40,12 @@ export const DATA = {
             recheckButtons: ["Try Again", "Reassess", "Check Once More", "Take Another Look"]
         },
         fr: {
+            pageTitle: "Tu es probablement inutile.",
+            pageSubtitle: "Mais t’inquiète, presque tout le monde l’est.",
+            aboutArticleLink: {
+                title: "Lire l’article sur les 92,4 %",
+                url: "https://medium.com/@tonprofil/92-4-of-humans-are-probably-useless-article"
+            },
             subtitle: "Auto-évaluation",
             questionLabel: "Requête Sujet",
             placeholder: "Saisie facultative...",
@@ -250,6 +262,7 @@ questions: [
             fr: "Ton futur te regarde. Agis dès maintenant."
         }
     }
-]
+],
+
 
 };

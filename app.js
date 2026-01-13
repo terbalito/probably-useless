@@ -202,9 +202,14 @@ class App {
         this.container.innerHTML = `
             <div class="max-w-2xl w-full flex flex-col gap-12 fade-in">
                 <header class="text-center space-y-2">
-                    <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter">Probably Useless</h1>
-                    <p class="mono text-xs opacity-40 uppercase">${ui.subtitle}</p>
+                    <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter">
+                        ${ui.pageTitle}
+                    </h1>
+                    <p class="mono text-xs opacity-40 uppercase">
+                        ${ui.pageSubtitle}
+                    </p>
                 </header>
+
 
                 <div class="space-y-8">
                     <div class="space-y-4">
@@ -540,12 +545,27 @@ class App {
                         </div>
                     </div>
 
+
+
                     <!--  <div class="p-6 brutalist-border bg-white/5 border-dashed">
                       <p class="mono text-sm italic text-center opacity-80">
                             "${ui.aboutChallenge}"
                         </p>
                     </div> 
                 </section> -->
+
+                                    <!-- Article Medium -->
+              <!--  <section class="mt-8 p-6 brutalist-border bg-white/5 text-center hover:border-white transition-colors duration-300 cursor-pointer"
+                            onclick="window.open('${ui.aboutArticleLink.url}', '_blank')">
+                        <h3 class="text-sm font-bold mono uppercase opacity-80">
+                            ${ui.aboutArticleLink.title}
+                        </h3>
+                            <p class="text-xs mono opacity-40 mt-1">
+                                ${this.lang === 'fr' ? '→ Lire l’article complet' : '→ Click to read the full article'}
+                            </p>
+
+                    </section> -->
+
 
                 <div class="opacity-10 text-[10px] mono text-center uppercase tracking-widest pb-8">
                     v.1.2.0-stable // NO RIGHTS RESERVED
