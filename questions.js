@@ -252,6 +252,160 @@ questions: [
     },
     {
         text: {
+            en: "What are you pretending not to see in your life?",
+            fr: "Qu’est-ce que tu fais semblant de ne pas voir dans ta vie ?"
+        },
+        response: {
+            en: "You see it. You just prefer excuses.",
+            fr: "Tu le vois très bien. Tu préfères juste les excuses."
+        },
+        shareText: {
+            en: "Avoidance is a full-time job.",
+            fr: "L’évitement est un job à plein temps."
+        }
+    },
+    {
+        text: {
+            en: "What would change if you were actually serious?",
+            fr: "Qu’est-ce qui changerait si tu étais vraiment sérieux ?"
+        },
+        response: {
+            en: "You’ll never know. You don’t try.",
+            fr: "Tu ne le sauras jamais. Tu n’essaies pas."
+        },
+        shareText: {
+            en: "Potential dies quietly.",
+            fr: "Le potentiel meurt en silence."
+        }
+    },
+    {
+        text: {
+            en: "What’s your favorite excuse?",
+            fr: "Quelle est ton excuse préférée ?"
+        },
+        response: {
+            en: "You’ve said it so often that even I think it sounds true.",
+            fr: "Tu l’as répétée tellement souvent que même moi je trouve qu’elle sonne vraie."
+        },
+        shareText: {
+            en: "Excuses age better than effort.",
+            fr: "Les excuses vieillissent mieux que l’effort."
+        }
+    },
+    {
+        text: {
+            en: "What do you talk about instead of doing?",
+            fr: "De quoi parles-tu au lieu d’agir ?"
+        },
+        response: {
+            en: "Plans. Dreams. Noise.",
+            fr: "Des plans. Des rêves. Du bruit."
+        },
+        shareText: {
+            en: "Talking feels like progress.",
+            fr: "Parler donne l’illusion d’avancer."
+        }
+    },
+    {
+        text: {
+            en: "What do you hide behind?",
+            fr: "Derrière quoi te caches-tu ?"
+        },
+        response: {
+            en: "Yeah, the occupation. It sounds serious",
+            fr: "Ouais, l’occupation. Ça fait sérieux."
+        },
+        shareText: {
+            en: "Busy isn’t effective.",
+            fr: "Occupé ne veut pas dire efficace."
+        }
+    },
+        {
+        text: {
+            en: "What do you avoid committing to?",
+            fr: "À quoi refuses-tu de t’engager ?"
+        },
+        response: {
+            en: "Anything that exposes your limits.",
+            fr: "Tout ce qui révèle tes limites."
+        },
+        shareText: {
+            en: "Commitment removes excuses.",
+            fr: "S’engager supprime les excuses."
+        }
+    },
+        {
+        text: {
+            en: "What are you afraid to measure?",
+            fr: "Qu’as-tu peur de mesurer ?"
+        },
+        response: {
+            en: "Your actual effort.",
+            fr: "Ton effort réel."
+        },
+        shareText: {
+            en: "Numbers don’t negotiate.",
+            fr: "Les chiffres ne négocient pas."
+        }
+    },
+    {
+        text: {
+            en: "What keeps you average?",
+            fr: "Qu’est-ce qui te maintient moyen ?"
+        },
+        response: {
+            en: "This comfort. You chose it.",
+            fr: "Ce confort. Tu l’as choisi."
+        },
+        shareText: {
+            en: "Average is a decision.",
+            fr: "La moyenne est un choix."
+        }
+    },
+    {
+        text: {
+            en: "What do you complain about the most?",
+            fr: "De quoi te plains-tu le plus ?"
+        },
+        response: {
+            en: "The results of your own inaction.",
+            fr: "Des résultats de ton inaction."
+        },
+        shareText: {
+            en: "Complaints don’t build anything.",
+            fr: "Se plaindre ne construit rien."
+        }
+    },
+    {
+        text: {
+            en: "What are you waiting for?",
+            fr: "Qu’est-ce que tu attends ?"
+        },
+        response: {
+            en: "Life won’t wait for you, but you keep waiting anyway... Good.",
+            fr: "La vie ne t’attend pas, mais toi tu continues d’attendre... Très bien."
+        },
+        shareText: {
+            en: "Waiting feels safe.",
+            fr: "Attendre rassure."
+        }
+    },
+    {
+        text: {
+            en: "What would hurt your ego the most?",
+            fr: "Qu’est-ce qui ferait le plus mal à ton ego ?"
+        },
+        response: {
+            en: "Admitting you’re average by choice.",
+            fr: "Admettre que tu es moyen par choix."
+        },
+        shareText: {
+            en: "Ego hates mirrors.",
+            fr: "L’ego déteste les miroirs."
+        }
+    },
+    {
+        text: {
             en: "Why aren’t you yet the person you claim you want to become?",
             fr: "Pourquoi n’es-tu pas encore la personne que tu dis vouloir devenir ?"
         },
