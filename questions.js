@@ -126,8 +126,8 @@ questions: [
             fr: "Quelle habitude dis-tu vouloir changer depuis trop longtemps ?"
         },
         response: {
-            en: "Saying 'nothing' is already a habit. It defines you quite well.",
-            fr: "Dire “rien” est déjà une habitude. Elle te définit plutôt bien."
+            en: "Saying it won’t change it. Just so you know.",
+            fr: "Le dire ne changera rien. Juste pour que tu saches."
         },
         shareText: {
             en: "Recognizing habits is the first step to change.",
@@ -199,16 +199,18 @@ questions: [
             en: [
                 "Money",
                 "Everything needs to be aligned",
-                "I’m taking my time",
                 "I need more information",
-                "It’s not the right moment"
+                "Lack of time",
+                "Lack of discipline",
+                "Bad priorities"
             ],
             fr: [
                 "L’argent",
                 "Que tout soit aligné",
-                "Je prends mon temps",
                 "J’ai besoin de plus d’informations",
-                "Ce n’est pas le bon moment"
+                "Le manque de temps",
+                "Le manque de discipline",
+                "De mauvaises priorités"
             ]
         },
         response: {
@@ -218,7 +220,7 @@ questions: [
         shareText: {
             en: "Excuses don’t move you forward. Choose action instead.",
             fr: "Les excuses ne font pas avancer. Choisis l’action."
-        }
+        },
     },
     {
         text: {
