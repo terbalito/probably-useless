@@ -114,10 +114,177 @@ questions: [
         response: {
             en: "Thank you for your optimism. See you in five years.",
             fr: "Très bien. On se reverra dans cinq ans."
+        }
+    },
+    {
+        text: {
+            en: "Describe what you’re proud of from the last 30 days.",
+            fr: "Décris ce dont tu es fier sur les 30 derniers jours."
         },
-        shareText: {
-            en: "Every small step today matters in the long run.",
-            fr: "Chaque petit pas aujourd’hui compte sur le long terme."
+        response: {
+            en: "Cool. Keep it up.",
+            fr: "Super. continues sur cette lancée."
+        }
+    },
+    {
+        text: {
+            en: "Explain why you’re not further ahead.",
+            fr: "Explique pourquoi tu n’es pas plus avancé."
+        },
+        response: {
+            en: "You know it now. Get your ass moving !",
+            fr: "Tu le sais maintenant. Bouge toi le cul !"
+        }
+    },
+    {
+        text: {
+            en: "Explain why today was different from the others.",
+            fr: "Explique pourquoi aujourd’hui était différent des autres."
+        },
+        response: {
+            en: "You just proved it wasn’t.",
+            fr: "Tu viens de prouver que ce ne l’était pas."
+        }
+    },
+    {
+        text: {
+            en: "How serious are your goals?",
+            fr: "À quel point tes objectifs sont-ils sérieux ?"
+        },
+        assertions: {
+            en: [
+                "Very serious, just not urgent",
+                "Important, but not right now",
+                "Clear in my head",
+                "I’ll start soon",
+                "They’re evolving"
+            ],
+            fr: [
+                "Très sérieux, mais pas urgents",
+                "Importants, mais pas maintenant",
+                "Clairs dans ma tête",
+                "Je commence bientôt",
+                "Ils évoluent"
+            ]
+        },
+        response: {
+            en: "So… not serious.",
+            fr: "Donc… pas sérieux."
+        }
+    },
+    {
+        text: {
+            en: "What did you spend most of your time on today?",
+            fr: "Sur quoi as-tu passé le plus de temps aujourd’hui ?"
+        },
+        response: {
+            en: "That explains tomorrow.",
+            fr: "Ça explique demain."
+        }
+    },
+    {
+        text: {
+            en: "What are you avoiding right now?",
+            fr: "Qu’est-ce que tu évites en ce moment ?"
+        },
+        response: {
+            en: "Still avoiding it.",
+            fr: "Toujours en train de l’éviter."
+        }
+    },
+
+    {
+        text: {
+            en: "Describe what makes you productive.",
+            fr: "Décris ce qui fait de toi quelqu’un de productif."
+        },
+        response: {
+            en: "Interesting theory.",
+            fr: "Théorie intéressante."
+        }
+    },
+    {
+        text: {
+            en: "What excuse fits you best today?",
+            fr: "Quelle excuse te correspond le mieux aujourd’hui ?"
+        },
+        response: {
+            en: "It's noted. Hopefully it won’t be the same tomorrow.",
+            fr: "C'est noté. Pourvu que ça soit pas la même chose demain."
+        }
+    },
+    {
+        text: {
+            en: "What would you do if no one was watching you ?",
+            fr: "Que ferais-tu si personne te regardait ?"
+        },
+        response: {
+            en: "Exactly.",
+            fr: "Exactement."
+        }
+    },
+    {
+        text: {
+            en: "Tell me what you’re proud of lately.",
+            fr: "Dis-moi ce dont tu es fier récemment."
+        },
+        response: {
+            en: "That explains a lot.",
+            fr: "Ça explique beaucoup de choses."
+        }
+    },
+    {
+        text: {
+            en: "How do you usually describe yourself?",
+            fr: "Comment te décris-tu habituellement ?"
+        },
+        assertions: {
+            en: [
+                "Worker",
+                "Motivated but inconsistent",
+                "Capable but distracted",
+                "Busy but unfulfilled",
+                "Potentially great",
+                "Still figuring things out"
+            ],
+            fr: [
+                "Travailleur",
+                "Motivé mais irrégulier",
+                "Capable mais distrait",
+                "Occupé mais insatisfait",
+                "Avec du potentiel",
+                "Encore en train de chercher"
+            ]
+        },
+        response: {
+            en: "Different descriptions but the same outcome.",
+            fr: "Des descriptions différentes mais le même résultat."
+        }
+    },
+    {
+        text: {
+            en: "What do you usually blame when things don’t work?",
+            fr: "Qu’est-ce que tu blâmes quand ça ne marche pas ?"
+        },
+        assertions: {
+            en: [
+                "Lack of time",
+                "Other people",
+                "Bad timing",
+                "The system",
+                "My situation"
+            ],
+            fr: [
+                "Le manque de temps",
+                "Les autres",
+                "Le mauvais timing",
+                "Le système",
+                "Ma situation"
+            ]
+        },
+        response: {
+            en: "Well, I must say, you didn't exactly choose yourself ?",
+            fr: "Eh bah dit donc, tu ne t’es pas choisi toi même !"
         }
     },
     {
@@ -128,24 +295,6 @@ questions: [
         response: {
             en: "Saying it won’t change it. Just so you know.",
             fr: "Le dire ne changera rien. Juste pour que tu saches."
-        },
-        shareText: {
-            en: "Recognizing habits is the first step to change.",
-            fr: "Reconnaître ses habitudes est le premier pas vers le changement."
-        }
-    },
-    {
-        text: {
-            en: "When was the last time you voluntarily did something difficult?",
-            fr: "Quand as-tu volontairement fait quelque chose de difficile pour la dernière fois ?"
-        },
-        response: {
-            en: "The time you took to answer is already an answer.",
-            fr: "Le temps que tu as mis à répondre est déjà une réponse."
-        },
-        shareText: {
-            en: "Challenge yourself often, even in small ways.",
-            fr: "Se challenger souvent, même modestement, change tout."
         }
     },
     {
@@ -153,13 +302,49 @@ questions: [
             en: "How disciplined are you when no one is watching?",
             fr: "À quel point es-tu discipliné quand personne ne te regarde ?"
         },
+        assertions: {
+            en: [
+                "Je fais ce que je dois faire, même seul.",
+                "J'essaie, mais sans pression je ralentis.",
+                "Je procrastine quand personne ne surveille.",
+                "J'ai besoin d'un cadre pour avancer.",
+            ],
+            fr: [
+                "I do what needs to be done, even alone",
+                "I try, but without pressure I slow down",
+                "I procrastinate when no one is watching",
+                "I need structure to move forward",
+            ]
+        },
         response: {
             en: "That’s exactly what I thought.",
             fr: "C’est bien ce que je pensais."
+        }
+    },
+    {
+        text: {
+            en: "What do you tell yourself to feel better?",
+            fr: "Qu’est-ce que tu te dis pour te rassurer ?"
         },
-        shareText: {
-            en: "Discipline in private builds freedom in public.",
-            fr: "La discipline dans l’ombre crée la liberté au grand jour."
+        assertions: {
+            en: [
+                "I’m doing my best",
+                "It’ll get better",
+                "Others have it worse",
+                "I still have time",
+                "It’s not that serious"
+            ],
+            fr: [
+                "Je fais de mon mieux",
+                "Ça ira mieux",
+                "D’autres sont plus mal",
+                "J’ai encore le temps",
+                "Ce n’est pas si grave"
+            ]
+        },
+        response: {
+            en: "What people say in their comfort zone.",
+            fr: "Ce que disent les gens dans leur zone de confort."
         }
     },
     {
@@ -170,10 +355,6 @@ questions: [
         response: {
             en: "You just described something you won’t apply.",
             fr: "Tu viens de décrire quelque chose que tu n’appliqueras pas."
-        },
-        shareText: {
-            en: "Consistency beats intensity every time.",
-            fr: "La régularité vaut mieux que l’intensité, toujours."
         }
     },
     {
@@ -184,10 +365,6 @@ questions: [
         response: {
             en: "Same with a official permission. You’ll still wait.",
             fr: "Même avec une autorisation officielle, tu attendras quand même."
-        },
-        shareText: {
-            en: "Stop waiting. Action teaches more than planning.",
-            fr: "Arrête d’attendre. L’action apprend plus que la planification."
         }
     },
     {
@@ -216,11 +393,7 @@ questions: [
         response: {
             en: "You checked something to avoid acting. Well played.",
             fr: "Tu as coché quelque chose pour éviter d’agir. Bien joué."
-        },
-        shareText: {
-            en: "Excuses don’t move you forward. Choose action instead.",
-            fr: "Les excuses ne font pas avancer. Choisis l’action."
-        },
+        }
     },
     {
         text: {
@@ -230,10 +403,6 @@ questions: [
         response: {
             en: "You should keep ignoring it. It prevents you from failing by trying.",
             fr: "Tu ferais mieux de continuer à l’ignorer. Ça t’évite d’échouer en essayant."
-        },
-        shareText: {
-            en: "Your untapped potential is quietly waiting for you.",
-            fr: "Ton potentiel inexploité t’attend silencieusement."
         }
     },
     {
@@ -242,12 +411,8 @@ questions: [
             fr: "Si rien ne change, où seras-tu dans un an ?"
         },
         response: {
-            en: "You will sadly be in the same place. ",
-            fr: "Tu seras tristement au même endroit."
-        },
-        shareText: {
-            en: "Small changes today prevent regrets tomorrow.",
-            fr: "De petits changements aujourd’hui évitent les regrets demain."
+            en: "You will sadly be in the same place. It's crazy ! ",
+            fr: "Tu seras tristement au même endroit. C'est fou !"
         }
     },
     {
@@ -258,10 +423,6 @@ questions: [
         response: {
             en: "You see it. You just prefer excuses.",
             fr: "Tu le vois très bien. Tu préfères juste les excuses."
-        },
-        shareText: {
-            en: "Avoidance is a full-time job.",
-            fr: "L’évitement est un job à plein temps."
         }
     },
     {
@@ -272,10 +433,6 @@ questions: [
         response: {
             en: "You’ll never know. You don’t try.",
             fr: "Tu ne le sauras jamais. Tu n’essaies pas."
-        },
-        shareText: {
-            en: "Potential dies quietly.",
-            fr: "Le potentiel meurt en silence."
         }
     },
     {
@@ -286,10 +443,6 @@ questions: [
         response: {
             en: "You’ve said it so often that even I think it sounds true.",
             fr: "Tu l’as répétée tellement souvent que même moi je trouve qu’elle sonne vraie."
-        },
-        shareText: {
-            en: "Excuses age better than effort.",
-            fr: "Les excuses vieillissent mieux que l’effort."
         }
     },
     {
@@ -300,27 +453,10 @@ questions: [
         response: {
             en: "Plans. Dreams. Noise.",
             fr: "Des plans. Des rêves. Du bruit."
-        },
-        shareText: {
-            en: "Talking feels like progress.",
-            fr: "Parler donne l’illusion d’avancer."
         }
     },
+
     {
-        text: {
-            en: "What do you hide behind?",
-            fr: "Derrière quoi te caches-tu ?"
-        },
-        response: {
-            en: "Yeah, the occupation. It sounds serious",
-            fr: "Ouais, l’occupation. Ça fait sérieux."
-        },
-        shareText: {
-            en: "Busy isn’t effective.",
-            fr: "Occupé ne veut pas dire efficace."
-        }
-    },
-        {
         text: {
             en: "What do you avoid committing to?",
             fr: "À quoi refuses-tu de t’engager ?"
@@ -328,13 +464,9 @@ questions: [
         response: {
             en: "Anything that exposes your limits.",
             fr: "Tout ce qui révèle tes limites."
-        },
-        shareText: {
-            en: "Commitment removes excuses.",
-            fr: "S’engager supprime les excuses."
         }
     },
-        {
+    {
         text: {
             en: "What are you afraid to measure?",
             fr: "Qu’as-tu peur de mesurer ?"
@@ -342,24 +474,16 @@ questions: [
         response: {
             en: "Your actual effort.",
             fr: "Ton effort réel."
-        },
-        shareText: {
-            en: "Numbers don’t negotiate.",
-            fr: "Les chiffres ne négocient pas."
         }
     },
     {
         text: {
-            en: "What keeps you average?",
-            fr: "Qu’est-ce qui te maintient moyen ?"
+            en: "What keeps you at an average level ?",
+            fr: "Qu’est-ce qui te maintient à niveau moyen ?"
         },
         response: {
             en: "This comfort. You chose it.",
-            fr: "Ce confort. Tu l’as choisi."
-        },
-        shareText: {
-            en: "Average is a decision.",
-            fr: "La moyenne est un choix."
+            fr: "Ce confort. Tu l’as toi même choisi."
         }
     },
     {
@@ -370,24 +494,16 @@ questions: [
         response: {
             en: "The results of your own inaction.",
             fr: "Des résultats de ton inaction."
-        },
-        shareText: {
-            en: "Complaints don’t build anything.",
-            fr: "Se plaindre ne construit rien."
         }
     },
     {
         text: {
-            en: "What are you waiting for?",
-            fr: "Qu’est-ce que tu attends ?"
+            en: "What are you waiting for to take the plunge ?",
+            fr: "Qu’est-ce que tu attends pour te lancer ?"
         },
         response: {
             en: "Life won’t wait for you, but you keep waiting anyway... Good.",
             fr: "La vie ne t’attend pas, mais toi tu continues d’attendre... Très bien."
-        },
-        shareText: {
-            en: "Waiting feels safe.",
-            fr: "Attendre rassure."
         }
     },
     {
@@ -398,10 +514,6 @@ questions: [
         response: {
             en: "Admitting you’re average by choice.",
             fr: "Admettre que tu es moyen par choix."
-        },
-        shareText: {
-            en: "Ego hates mirrors.",
-            fr: "L’ego déteste les miroirs."
         }
     },
     {
@@ -410,14 +522,86 @@ questions: [
             fr: "Pourquoi n’es-tu pas encore la personne que tu dis vouloir devenir ?"
         },
         response: {
-            en: "No need to answer. Your actions already did.",
-            fr: "Inutile de répondre. Tes actions l’ont déjà fait."
-        },
-        shareText: {
-            en: "Your future self is watching. Start acting now.",
-            fr: "Ton futur te regarde. Agis dès maintenant."
+            en: "It's wasn't worth my while to answer. Your actions already did.",
+            fr: "C'etait pas la peine de répondre. Tes actions l’ont déjà fait."
         }
+    },
+    {
+        text: {
+            en: "What do you complain about the most?",
+            fr: "De quoi te plains-tu le plus ?"
+        },
+        response: {
+            en: "The results of your own inaction.",
+            fr: "Des résultats de ton inaction."
+        }
+    },
+    {
+        text: {
+            en: "What are you supposed to be doing right now?",
+            fr: "Qu’est-ce que tu es censé faire là, normalement ?"
+        },
+        response: {
+            en: "If it was important, you wouldn’t be here answering this.",
+            fr: "Si c’était important, tu ne serais pas ici à répondre à ça."
+        }
+    },
+    {
+        text: {
+            en: "Describe what you think counts as learning.",
+            fr: "Décris ce que tu considères comme apprendre."
+        },
+        response: {
+            en: "I see... That’s exactly why nothing changes.",
+            fr: "Je vois... C’est exactement pour ça que rien ne change."
+        }
+    },
+    {
+        text: {
+            en: "Describe the version of yourself you keep postponing.",
+            fr: "Décris la version de toi que tu repousses sans cesse."
+        },
+        response: {
+            en: "Unfortunately, he is still waiting.",
+            fr: "Malheureusement, il est toujours en attente."
+        }
+    },
+    {
+        text: {
+            en: "Why are you here right now?",
+            fr: "Pourquoi es-tu ici en ce moment ?"
+        },
+        assertions: {
+            en: [
+                "Curiosity",
+                "Boredom",
+                "Self-reflection",
+                "Just passing time",
+                "I don’t know"
+            ],
+            fr: [
+                "Par curiosité",
+                "Par ennui",
+                "Pour réfléchir",
+                "Pour passer le temps",
+                "Je ne sais pas"
+            ]
+        },
+        response: {
+            en: "If you were busy, you wouldn’t be here.",
+            fr: "Si tu étais occupé, tu ne le serais pas ici."
+        }
+    },
+    {
+    text: {
+        en: "Explain why you deserve more than what you currently have.",
+        fr: "Explique pourquoi tu mérites plus que ce que tu as actuellement."
+    },
+    response: {
+        en: "I understand that you're in need of many things. That's noted.",
+        fr: "Je comprend que t'es en manque de beaucoup de chose. C'est noté."
     }
+}
 ],
 
 
