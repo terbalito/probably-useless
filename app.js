@@ -7,6 +7,12 @@ import DOMPurify from 'dompurify';
    LOCAL COMMENTS SYSTEM (NO API)
 ================================ */
 
+const UNIVERSAL_SHARE_TEXT = {
+  en: "I came across this strange self-assessment. I hate this site !",
+  fr: "Je suis tombé sur une auto-évaluation étrange. Je hais ce site !"
+};
+
+
 // Simule un "projet"
 window.getCurrentProject = async function () {
     return {
