@@ -13,7 +13,7 @@ export const DATA = {
             validate: "Validate",
             recheck: "Recheck",
             uselessHook: "If you're still this useless.",
-            refreshToast: "Refreshing does not count as a new evaluation.",
+            refreshToast: "Refresh the page doesn't change anything.",
             shareRoast: "Shame on you.",
             registryTitle: "Central Registry",
             registrySubtitle: "Authenticated evaluations ledger",
@@ -52,7 +52,7 @@ export const DATA = {
             validate: "Valider",
             recheck: "Réévaluer",
             uselessHook: "Si vous êtes toujours aussi inutile.",
-            refreshToast: "Actualiser ne compte pas comme une nouvelle évaluation.",
+            refreshToast: "Actualiser la page ne changera rien !",
             shareRoast: "Honte à vous.",
             registryTitle: "Registre Central",
             registrySubtitle: "Registre des évaluations authentifiées",
@@ -128,6 +128,86 @@ questions: [
     },
     {
         text: {
+            en: "What time did you wake up today?",
+            fr: "À quelle heure t’es-tu réveillé aujourd’hui ?"
+        },
+        response: {
+            en: "You woke up. That’s about it.",
+            fr: "Tu t’es réveillé. C’est à peu près tout."
+        }
+    },
+    {
+        text: {
+            en: "What did you eat today?",
+            fr: "Qu’as-tu mangé aujourd’hui ?"
+        },
+        response: {
+            en: "That explains the energy level.",
+            fr: "Ça explique le niveau d’énergie."
+        }
+    },
+    {
+        text: {
+            en: "How many times did you say 'tomorrow' today?",
+            fr: "Combien de fois as-tu dit « demain » aujourd’hui ?"
+        },
+        response: {
+            en: "A solid long-term strategy.",
+            fr: "Une stratégie long terme solide."
+        }
+    },
+    {
+        text: {
+            en: "What did you postpone today?",
+            fr: "Qu’as-tu encore repoussé aujourd’hui ?"
+        },
+        response: {
+            en: "You’re consistent, at least.",
+            fr: "Au moins, tu es constant."
+        }
+    },
+    {
+        text: {
+            en: "How long did you spend on your phone today?",
+            fr: "Combien de temps as-tu passé sur ton téléphone aujourd’hui ?"
+        },
+        response: {
+            en: "Don’t worry, I take your word for it.",
+            fr: "T'inquiètes, je te crois sur parole."
+        }
+    },
+    {
+        text: {
+            en: "Did you do what you said you would do today?",
+            fr: "As-tu fait ce que tu avais dit que tu ferais aujourd’hui ?"
+        },
+        response: {
+            en: "I was just checking if you were aware.",
+            fr: "Je vérifiais juste si t'étais au courant."
+        }
+    },
+    {
+        text: {
+            en: "How many times did you convince yourself you were busy?",
+            fr: "Combien de fois t’es-tu convaincu que tu étais occupé ?"
+        },
+        response: {
+            en: "Anyway, if you were busy, you wouldn’t be here.",
+            fr: "De toute façon si tu étais occupé, tu ne serais pas ici."
+        }
+    },
+    {
+        text: {
+            en: "When was the last time you finished something?",
+            fr: "Quand as-tu fini quelque chose pour la dernière fois ?"
+        },
+        response: {
+            en: "Take your time. No rush.",
+            fr: "Prends ton temps. Rien ne presse."
+        }
+    },
+    {
+        text: {
             en: "Explain why you’re not further ahead.",
             fr: "Explique pourquoi tu n’es pas plus avancé."
         },
@@ -138,12 +218,102 @@ questions: [
     },
     {
         text: {
+            en: "What did you do instead of what mattered really today?",
+            fr: "Qu’as-tu fait à la place de ce qui comptait vraiment aujourd’hui ?"
+        },
+        response: {
+            en: "The easiest obviously.",
+            fr: "Le plus facile évidemment."
+        }
+    },
+    {
+        text: {
             en: "Explain why today was different from the others.",
             fr: "Explique pourquoi aujourd’hui était différent des autres."
         },
         response: {
             en: "You just proved it wasn’t.",
             fr: "Tu viens de prouver que ce ne l’était pas."
+        }
+    },
+    {
+        text: {
+            en: "What will you avoid again tomorrow?",
+            fr: "Qu’est-ce que tu éviteras encore demain ?"
+        },
+        response: {
+            en: "See you tomorrow then.",
+            fr: "On se dit à demain alors."
+        }
+    },
+    {
+        text: {
+            en: "Did you leave a notification unread on purpose?",
+            fr: "As-tu laissé une notification non lue exprès ?"
+        },
+        response: {
+            en: "Procrastination level: expert.",
+            fr: "Niveau procrastination : expert."
+        }
+    },
+    {
+        text: {
+            en: "Did you laugh today?",
+            fr: "As-tu ri aujourd’hui ?"
+        },
+        response: {
+            en: "At least you pretended to feel alive.",
+            fr: "Au moins, tu as fait semblant de te sentir vivant."
+        }
+    },
+    {
+        text: {
+            en: "Did you look outside today?",
+            fr: "As-tu regardé dehors aujourd’hui ?"
+        },
+        response: {
+            en: "Nature continues without you.",
+            fr: "La nature continue sans toi."
+        }
+    },
+    {
+        text: {
+            en: "Did you wash your hands today?",
+            fr: "T’es-tu lavé les mains aujourd’hui ?"
+        },
+        response: {
+            en: "Hygiene: minimal. Humanity: questionable.",
+            fr: "Hygiène : minimale. Humanité : douteuse."
+        }
+    },
+    {
+        text: {
+            en: "Did you move from your chair today?",
+            fr: "T’es-tu déplacé de ta chaise aujourd’hui ?"
+        },
+        response: {
+            en: "Congratulations. Gravity still wins.",
+            fr: "Félicitations. La gravité a encore gagné."
+        }
+    },
+    {
+        text: {
+            en: "Did you open a window today?",
+            fr: "As-tu ouvert une fenêtre aujourd’hui ?"
+        },
+        response: {
+            en: "Fresh air remains a stranger.",
+            fr: "L’air frais reste un étranger."
+        }
+    },
+    {
+        text: {
+            en: "Did you check your reflection today?",
+            fr: "T’es-tu regardé dans le miroir aujourd’hui ?"
+        },
+        response: {
+            en: "Whatever. Still there. Still disappointing.",
+            fr: "Peu importe. Toujours là. Toujours décevant."
         }
     },
     {
@@ -562,8 +732,8 @@ questions: [
             fr: "Décris la version de toi que tu repousses sans cesse."
         },
         response: {
-            en: "Unfortunately, he is still waiting.",
-            fr: "Malheureusement, il est toujours en attente."
+            en: "Unfortunately, that version of you is still waiting.",
+            fr: "Malheureusement, cette version de toi est toujours en attente."
         }
     },
     {

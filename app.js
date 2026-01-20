@@ -373,25 +373,23 @@ class App {
         document.querySelectorAll('.share-trigger').forEach(btn => {
             btn.onclick = () => {
                     const platform = btn.getAttribute('data-platform');
-                    const lastHistoryItem = this.history[0];
-                    const shareUrl = `${window.location.origin}${window.location.pathname}#response/${lastHistoryItem?.id || ''}`;
-                    const questionObj = DATA.questions.find(q => q.text[this.lang] === lastHistoryItem?.qText);
-                    const text = questionObj?.shareText[this.lang] || "I just evaluated my existence on Probably Useless.";
+                    const shareUrl = window.location.origin + window.location.pathname; // juste la page, pas l'interaction
+                    const text = UNIVERSAL_SHARE_TEXT[this.lang]; // texte universel
+
 
                     
-                    if (platform === 'copy') {
-                        navigator.clipboard.writeText(shareUrl);
-                        this.showToast("Link copied to clipboard.");
-                    } else if (platform === 'x') {
+                    if (platform === 'x') {
                         window.open(
-                        `https://twitter.com/intent/tweet?text=${encodeURIComponent("Découvre ce quiz introspectif !")}%20${encodeURIComponent("https://terbalito.github.io/probably-useless/#response/mkbx8la1")}`,
-                        '_blank'
+                            `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}%20${encodeURIComponent(shareUrl)}`,
+                            '_blank'
                         );
-
                     } else if (platform === 'linkedin') {
-                        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://terbalito.github.io/probably-useless/#response/mkbx8la1")}`, '_blank');
-
+                        window.open(
+                            `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+                            '_blank'
+                        );
                     }
+
 
                 // Sharing logic
                 if (!this.recheckUnlocked && platform !== 'copy') {
