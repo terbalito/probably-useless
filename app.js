@@ -77,16 +77,15 @@ class App {
     }
 
     determineCurrentIndex() {
-        // === Cooldown après 15 questions ===
         const lastBlock = localStorage.getItem('pu_block_timestamp');
         const now = Date.now();
-        const cooldown = 1.5 * 60 * 60 * 1000; // 1h30 en ms
+        const cooldown = 1.5 * 60 * 60 * 1000; // 1h30
 
         if (lastBlock) {
             const elapsed = now - parseInt(lastBlock, 10);
             if (elapsed < cooldown) {
                 this.showToast(`Cooldown actif. Reviens dans ${Math.ceil((cooldown - elapsed)/60000)} min`);
-                return null; // bloqué
+                return null;
             } else {
                 localStorage.removeItem('pu_block_timestamp');
                 this.answeredIndices = [];
@@ -99,10 +98,19 @@ class App {
             return null;
         }
 
-        // === Choix aléatoire d'une question non encore répondue ===
-        let saved = localStorage.getItem('pu_current_index');
-        if (saved !== null) return parseInt(saved);
+        // === Forcer les deux premières questions par ID ===
+        if (this.answeredIndices.length === 0) {
+            const firstIndex = DATA.questions.findIndex(q => q.id === "q-001");
+            localStorage.setItem('pu_current_index', firstIndex);
+            return firstIndex;
+        }
+        if (this.answeredIndices.length === 1) {
+            const secondIndex = DATA.questions.findIndex(q => q.id === "q-027");
+            localStorage.setItem('pu_current_index', secondIndex);
+            return secondIndex;
+        }
 
+        // === Choix aléatoire pour les questions suivantes ===
         let available = Array.from({length: DATA.questions.length}, (_, i) => i)
             .filter(i => !this.answeredIndices.includes(i));
 
@@ -111,12 +119,12 @@ class App {
             available = Array.from({length: DATA.questions.length}, (_, i) => i);
         }
 
-    // console.log("Available indices:", available, "Answered indices:", this.answeredIndices);
-    const next = available[Math.floor(Math.random() * available.length)];
-    console.log("Chosen index:", next);
-    localStorage.setItem('pu_current_index', next);
-    return next;
-}
+        const next = available[Math.floor(Math.random() * available.length)];
+        localStorage.setItem('pu_current_index', next);
+        return next;
+    }
+
+
 
     init() {
         this.langSwitcher.value = this.lang;
