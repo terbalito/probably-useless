@@ -293,7 +293,7 @@ class App {
         // this.currentIndex = DATA.questions.findIndex(q => q.assertions);
 
 
-        console.log("QUESTION", this.currentIndex, DATA.questions[this.currentIndex]);
+        // console.log("QUESTION", this.currentIndex, DATA.questions[this.currentIndex]);
 
     }
 
@@ -523,7 +523,7 @@ class App {
                             <div class="flex gap-4 items-center">
                                 <img src="joe.jpeg" alt="Joe moyo" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
                                 <div class="space-y-1">
-                                    <h3 class="mono text-sm font-bold uppercase">Joe Moyo</h3>
+                                    <h3 class="mono text-sm font-bold uppercase">Joel Moyowabu</h3>
                                     <p class="mono text-[10px] opacity-40 uppercase tracking-tighter">${ui.aliceRole}</p>
                                 </div>
                             </div>
