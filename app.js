@@ -268,77 +268,60 @@ class App {
         const input = document.getElementById('answer-input');
 
         if (validateBtn) {
-            validateBtn.onclick = () => {
-                const q = DATA.questions[this.currentIndex];
-                let val = '';
-                let selectedAssertions = [];
+                validateBtn.onclick = () => {
+                    const q = DATA.questions[this.currentIndex];
+                    let val = '';
+                    let selectedAssertions = [];
 
-                // =====================
-                // ASSERTIONS
-                // =====================
-                if (q.assertions) {
-                    selectedAssertions = [...document.querySelectorAll('.assertion-checkbox')]
-                        .filter(cb => cb.checked)
-                        .map(cb => cb.nextElementSibling.innerText);
+                    if (q.assertions) {
+                        selectedAssertions = [...document.querySelectorAll('.assertion-checkbox')]
+                            .filter(cb => cb.checked)
+                            .map(cb => cb.nextElementSibling.innerText);
 
-                    if (selectedAssertions.length === 0) {
-                        this.showToast(DATA.ui[this.lang].mandatoryAnswer || "You must choose something.");
-                        return;
+                        if (selectedAssertions.length === 0) {
+                            this.showToast(DATA.ui[this.lang].mandatoryAnswer || "You must choose something.");
+                            return;
+                        }
+
+                        val = selectedAssertions.join(', ');
+
+                        // 🔥 Correction ici : réponse spécifique à la question
+                        this.lastResponse = q.response[this.lang];
+                    } else {
+                        const input = document.getElementById('answer-input');
+                        val = input.value.trim();
+
+                        if (!val) {
+                            this.showToast(DATA.ui[this.lang].mandatoryAnswer || "You must choose something.");
+                            return;
+                        }
+
+                        this.lastResponse = q.response[this.lang];
                     }
 
-                    const count = selectedAssertions.length;
+                    // =====================
+                    // FINALISATION
+                    // =====================
+                    this.isAnswered = true;
+                    this.score++;
+                    this.answeredIndices.push(this.currentIndex);
 
-                    this.lastResponse =
-                        count === 1
-                            ? {
-                                en: "You picked one excuse  to avoid acting. Efficient.",
-                                fr: "Tu as coché une excuse pour éviter d’agir. Efficace."
-                            }[this.lang]
-                            : {
-                                en: `You picked ${count} excuses  to avoid acting. Impressive restraint.`,
-                                fr: `Tu as coché ${count} excuses pour éviter d’agir. Belle maîtrise.`
-                            }[this.lang];
+                    this.history.unshift({
+                        id: Date.now().toString(36),
+                        qText: q.text[this.lang],
+                        userInput: val,
+                        botResponse: this.lastResponse,
+                        timestamp: new Date().toISOString()
+                    });
 
-                    val = selectedAssertions.join(', ');
-                }
+                    localStorage.setItem('pu_score', this.score);
+                    localStorage.setItem('pu_answered', JSON.stringify(this.answeredIndices));
+                    localStorage.setItem('pu_history', JSON.stringify(this.history));
 
-                // =====================
-                // TEXTE LIBRE
-                // =====================
-                else {
-                    const input = document.getElementById('answer-input');
-                    val = input.value.trim();
+                    this.updateCounter();
+                    this.renderHome();
+                };
 
-                    if (!val) {
-                        this.showToast(DATA.ui[this.lang].mandatoryAnswer || "You must choose something.");
-                        return;
-                    }
-
-                    this.lastResponse = q.response[this.lang];
-                }
-
-                // =====================
-                // FINALISATION
-                // =====================
-                this.isAnswered = true;
-                this.score++;
-                this.answeredIndices.push(this.currentIndex);
-
-                this.history.unshift({
-                    id: Date.now().toString(36),
-                    qText: q.text[this.lang],
-                    userInput: val,
-                    botResponse: this.lastResponse,
-                    timestamp: new Date().toISOString()
-                });
-
-                localStorage.setItem('pu_score', this.score);
-                localStorage.setItem('pu_answered', JSON.stringify(this.answeredIndices));
-                localStorage.setItem('pu_history', JSON.stringify(this.history));
-
-                this.updateCounter();
-                this.renderHome();
-            };
         }
 
 
@@ -503,48 +486,48 @@ class App {
                         <!-- Alice Card -->
                         <div class="brutalist-border p-5 space-y-4 hover:border-white transition-colors duration-300">
                             <div class="flex gap-4 items-center">
-                                <img src="alice_avatar.png" alt="Alice" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="joe.jpeg" alt="Joe moyo" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
                                 <div class="space-y-1">
-                                    <h3 class="mono text-sm font-bold uppercase">Alice Smith</h3>
+                                    <h3 class="mono text-sm font-bold uppercase">Joe Moyo</h3>
                                     <p class="mono text-[10px] opacity-40 uppercase tracking-tighter">${ui.aliceRole}</p>
                                 </div>
                             </div>
                             <p class="mono text-xs opacity-60 leading-relaxed">${ui.aliceBio}</p>
                             <div class="flex gap-3">
-                                <a href="https://twitter.com/alice" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-                                <a href="https://linkedin.com/in/alice-smith" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                                <a href="https://github.com/terbalito" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="github" class="w-4 h-4"></i></a>
+                                <a href="https://linkedin.com/in/joemoyo" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
                             </div>
                         </div>
 
                         <!-- Bob Card -->
                         <div class="brutalist-border p-5 space-y-4 hover:border-white transition-colors duration-300">
                             <div class="flex gap-4 items-center">
-                                <img src="bob_avatar.png" alt="Bob" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="devis.jpeg" alt="Bob" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
                                 <div class="space-y-1">
-                                    <h3 class="mono text-sm font-bold uppercase">Bob Jones</h3>
+                                    <h3 class="mono text-sm font-bold uppercase">DEVIS MULUMBA</h3>
                                     <p class="mono text-[10px] opacity-40 uppercase tracking-tighter">${ui.bobRole}</p>
                                 </div>
                             </div>
                             <p class="mono text-xs opacity-60 leading-relaxed">${ui.bobBio}</p>
                             <div class="flex gap-3">
-                                <a href="https://github.com/bobjones" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="github" class="w-4 h-4"></i></a>
-                                <a href="https://linkedin.com/in/bob-jones" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                           <!-- <a href="https://github.com/bobjones" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="github" class="w-4 h-4"></i></a> -->
+                                <a href="https://www.linkedin.com/in/devis-mulumba-4967a329a/" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
                             </div>
                         </div>
 
                          <!-- Charlie Card -->
                         <div class="brutalist-border p-5 space-y-4 hover:border-white transition-colors duration-300">
                             <div class="flex gap-4 items-center">
-                                <img src="charlie_avatar.png" alt="Charlie" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="kevin.jpeg" alt="Kevin" class="w-16 h-16 brutalist-border grayscale hover:grayscale-0 transition-all duration-300">
                                 <div class="space-y-1">
-                                    <h3 class="mono text-sm font-bold uppercase">Charlie Doe</h3>
+                                    <h3 class="mono text-sm font-bold uppercase">Kevin Situsongua</h3>
                                     <p class="mono text-[10px] opacity-40 uppercase tracking-tighter">${ui.charlieRole}</p>
                                 </div>
                             </div>
                             <p class="mono text-xs opacity-60 leading-relaxed">${ui.charlieBio}</p>
                             <div class="flex gap-3">
-                                <a href="#" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-                                <a href="#" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                        <!--    <a href="https://twitter.com/kevin" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="twitter" class="w-4 h-4"></i></a> -->
+                                <a href="https://www.linkedin.com/in/kevin-situsongua-155700374/" target="_blank" class="opacity-40 hover:opacity-100 transition-opacity"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
                             </div>
                         </div>
                     </div>

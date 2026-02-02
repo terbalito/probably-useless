@@ -34,7 +34,7 @@ export const DATA = {
             historyTitle: "Subject History",
             historySubtitle: "Chronicle of past evaluations",
             viewDetails: "Examine",
-            shareRequired: "Validation sharing required to reset parameters.",
+            shareRequired: "Share the link on social media or leave.",
             shamePopups: ["Shame on you.", "Integrity missing.", "Compliance is not optional.", "Sharing is caring. Or mandatory.", "A shortcut to disappointment."],
             thankYouPopups: ["Participation noted.", "Network expanding.", "Your vanity has been leveraged.", "Exposure confirmed."],
             recheckButtons: ["Try Again", "Reassess", "Check Once More", "Take Another Look"]
@@ -62,9 +62,9 @@ export const DATA = {
             aboutCreatorsTitle: "À propos des Créateurs",
             aboutChallenge: "L'un d'entre nous n'a rien fait. Il n'a participé ni au développement ni aux idées. Pouvez-vous deviner qui c'est ? Partagez votre supposition dans les commentaires ci-dessous !",
             aliceRole: "Concept & Design",
-            aliceBio: "Alice se concentre sur l'architecture systémique et l'esthétique de l'inconfort. Elle croit que la clarté naît de la friction.",
+            aliceBio: "Joe se concentre sur l'architecture systémique et l'esthétique de l'inconfort. il croit que la clarté naît de la friction.",
             bobRole: "Développement",
-            bobBio: "Bob traduit l'angoisse existentielle abstraite en code fonctionnel. Il préfère les machines aux gens pour leur prévisibilité.",
+            bobBio: "Devis traduit l'angoisse existentielle abstraite en code fonctionnel. Il préfère les machines aux gens pour leur prévisibilité.",
             charlieRole: "Supervision existentielle",
             charlieBio: "Surveille les écarts entre l’intention de l’utilisateur et la réponse du système. Souvent observé fixant des exceptions non gérées.",
             commentsTitle: "Archives Publiques / Commentaires",
@@ -73,7 +73,7 @@ export const DATA = {
             historyTitle: "Historique du Sujet",
             historySubtitle: "Chronique des évaluations passées",
             viewDetails: "Examiner",
-            shareRequired: "Partage de validation requis pour réinitialiser les paramètres.",
+            shareRequired: "Partage le lien sur les réseaux ou vas t'en.",
             shamePopups: ["Honte à vous.", "Intégrité manquante.", "La conformité n'est pas optionnelle.", "Le partage est obligatoire.", "Un raccourci vers la déception."],
             thankYouPopups: ["Participation notée.", "Réseau en expansion.", "Votre vanité a été exploitée.", "Exposition confirmée."],
             recheckButtons: ["Réessayer", "Réévaluer", "Revérifier", " Jeter un autre coup d'œil"]
@@ -148,16 +148,6 @@ questions: [
     },
     {
         text: {
-            en: "How many times did you say 'tomorrow' today?",
-            fr: "Combien de fois as-tu dit « demain » aujourd’hui ?"
-        },
-        response: {
-            en: "A solid long-term strategy.",
-            fr: "Une stratégie long terme solide."
-        }
-    },
-    {
-        text: {
             en: "What did you postpone today?",
             fr: "Qu’as-tu encore repoussé aujourd’hui ?"
         },
@@ -166,16 +156,16 @@ questions: [
             fr: "Au moins, tu es constant."
         }
     },
-    {
-        text: {
-            en: "How long did you spend on your phone today?",
-            fr: "Combien de temps as-tu passé sur ton téléphone aujourd’hui ?"
-        },
-        response: {
-            en: "Don’t worry, I take your word for it.",
-            fr: "T'inquiètes, je te crois sur parole."
-        }
-    },
+    // {
+    //     text: {
+    //         en: "How long did you spend on your phone today?",
+    //         fr: "Combien de temps as-tu passé sur ton téléphone aujourd’hui ?"
+    //     },
+    //     response: {
+    //         en: "Don’t worry, I take your word for it.",
+    //         fr: "T'inquiètes, je te crois sur parole."
+    //     }
+    // },
     {
         text: {
             en: "Did you do what you said you would do today?",
@@ -184,16 +174,6 @@ questions: [
         response: {
             en: "I was just checking if you were aware.",
             fr: "Je vérifiais juste si t'étais au courant."
-        }
-    },
-    {
-        text: {
-            en: "How many times did you convince yourself you were busy?",
-            fr: "Combien de fois t’es-tu convaincu que tu étais occupé ?"
-        },
-        response: {
-            en: "Anyway, if you were busy, you wouldn’t be here.",
-            fr: "De toute façon si tu étais occupé, tu ne serais pas ici."
         }
     },
     {
@@ -228,16 +208,6 @@ questions: [
     },
     {
         text: {
-            en: "Explain why today was different from the others.",
-            fr: "Explique pourquoi aujourd’hui était différent des autres."
-        },
-        response: {
-            en: "You just proved it wasn’t.",
-            fr: "Tu viens de prouver que ce ne l’était pas."
-        }
-    },
-    {
-        text: {
             en: "What will you avoid again tomorrow?",
             fr: "Qu’est-ce que tu éviteras encore demain ?"
         },
@@ -246,16 +216,16 @@ questions: [
             fr: "On se dit à demain alors."
         }
     },
-    {
-        text: {
-            en: "Did you leave a notification unread on purpose?",
-            fr: "As-tu laissé une notification non lue exprès ?"
-        },
-        response: {
-            en: "Procrastination level: expert.",
-            fr: "Niveau procrastination : expert."
-        }
-    },
+    // {
+    //     text: {
+    //         en: "Did you leave a notification unread on purpose?",
+    //         fr: "As-tu laissé une notification non lue exprès ?"
+    //     },
+    //     response: {
+    //         en: "Procrastination level: expert.",
+    //         fr: "Niveau procrastination : expert."
+    //     }
+    // },
     {
         text: {
             en: "Did you laugh today?",
@@ -286,26 +256,26 @@ questions: [
             fr: "Hygiène : minimale. Humanité : douteuse."
         }
     },
-    {
-        text: {
-            en: "Did you move from your chair today?",
-            fr: "T’es-tu déplacé de ta chaise aujourd’hui ?"
-        },
-        response: {
-            en: "Congratulations. Gravity still wins.",
-            fr: "Félicitations. La gravité a encore gagné."
-        }
-    },
-    {
-        text: {
-            en: "Did you open a window today?",
-            fr: "As-tu ouvert une fenêtre aujourd’hui ?"
-        },
-        response: {
-            en: "Fresh air remains a stranger.",
-            fr: "L’air frais reste un étranger."
-        }
-    },
+    // {
+    //     text: {
+    //         en: "Did you move from your chair today?",
+    //         fr: "T’es-tu déplacé de ta chaise aujourd’hui ?"
+    //     },
+    //     response: {
+    //         en: "Congratulations. Gravity still wins.",
+    //         fr: "Félicitations. La gravité a encore gagné."
+    //     }
+    // },
+    // {
+    //     text: {
+    //         en: "Did you open a window today?",
+    //         fr: "As-tu ouvert une fenêtre aujourd’hui ?"
+    //     },
+    //     response: {
+    //         en: "Fresh air remains a stranger.",
+    //         fr: "L’air frais reste toujours un étranger."
+    //     }
+    // },
     {
         text: {
             en: "Did you check your reflection today?",
@@ -342,26 +312,16 @@ questions: [
             fr: "Donc… pas sérieux."
         }
     },
-    {
-        text: {
-            en: "What did you spend most of your time on today?",
-            fr: "Sur quoi as-tu passé le plus de temps aujourd’hui ?"
-        },
-        response: {
-            en: "That explains tomorrow.",
-            fr: "Ça explique demain."
-        }
-    },
-    {
-        text: {
-            en: "What are you avoiding right now?",
-            fr: "Qu’est-ce que tu évites en ce moment ?"
-        },
-        response: {
-            en: "Still avoiding it.",
-            fr: "Toujours en train de l’éviter."
-        }
-    },
+    // {
+    //     text: {
+    //         en: "What are you avoiding right now?",
+    //         fr: "Qu’est-ce que tu évites en ce moment ?"
+    //     },
+    //     response: {
+    //         en: "Still avoiding it.",
+    //         fr: "Toujours en train de l’éviter."
+    //     }
+    // },
 
     {
         text: {
@@ -607,16 +567,6 @@ questions: [
     },
     {
         text: {
-            en: "What’s your favorite excuse?",
-            fr: "Quelle est ton excuse préférée ?"
-        },
-        response: {
-            en: "You’ve said it so often that even I think it sounds true.",
-            fr: "Tu l’as répétée tellement souvent que même moi je trouve qu’elle sonne vraie."
-        }
-    },
-    {
-        text: {
             en: "What do you talk about instead of doing?",
             fr: "De quoi parles-tu au lieu d’agir ?"
         },
@@ -642,8 +592,8 @@ questions: [
             fr: "Qu’as-tu peur de mesurer ?"
         },
         response: {
-            en: "Your actual effort.",
-            fr: "Ton effort réel."
+            en: "The actual measure.",
+            fr: "La mesure réelle."
         }
     },
     {
@@ -684,16 +634,6 @@ questions: [
         response: {
             en: "Admitting you’re average by choice.",
             fr: "Admettre que tu es moyen par choix."
-        }
-    },
-    {
-        text: {
-            en: "Why aren’t you yet the person you claim you want to become?",
-            fr: "Pourquoi n’es-tu pas encore la personne que tu dis vouloir devenir ?"
-        },
-        response: {
-            en: "It's wasn't worth my while to answer. Your actions already did.",
-            fr: "C'etait pas la peine de répondre. Tes actions l’ont déjà fait."
         }
     },
     {
