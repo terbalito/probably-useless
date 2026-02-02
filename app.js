@@ -3,6 +3,14 @@ import { DATA } from './questions.js';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 
+// DATA.question.forEach((q, index) => {
+//   if (!q.id) q.id = `q-${String(index+1).padStart(3,'0')}`;
+//   if (!q.type) q.type = q.assertions ? "assertion" : "text";
+//   if (!q.response) q.response = { en: "No response", fr: "Pas de réponse" };
+// });
+
+// console.log(DATA.question);
+
 /* ================================
    LOCAL COMMENTS SYSTEM (NO API)
 ================================ */
@@ -12,12 +20,9 @@ const UNIVERSAL_SHARE_TEXT = {
   fr: "Je suis tombé sur une auto-évaluation étrange. Je hais ce site !"
 };
 
-
 // Simule un "projet"
 window.getCurrentProject = async function () {
-    return {
-        id: "probably-useless",
-    };
+    return { id: "probably-useless" };
 };
 
 // Sauvegarde un commentaire
@@ -25,23 +30,23 @@ window.postComment = async function ({ content }) {
     const raw = localStorage.getItem("pu_comments");
     const comments = raw ? JSON.parse(raw) : [];
 
+    // Génération d'ID personnalisée
+    let commentId;
+    if (comments.length === 0) commentId = "001";
+    else if (comments.length === 1) commentId = "027";
+    else commentId = crypto.randomUUID();
+
     comments.unshift({
-        id: crypto.randomUUID(),
+        id: commentId,
         raw_content: content,
         created_at: new Date().toISOString(),
-        author: {
-            username: "anonymous"
-        }
+        author: { username: "anonymous" }
     });
 
     localStorage.setItem("pu_comments", JSON.stringify(comments));
 
     // Event temps réel fake
-    window.dispatchEvent(new CustomEvent("comment:created", {
-        detail: {
-            comment: comments[0]
-        }
-    }));
+    window.dispatchEvent(new CustomEvent("comment:created", { detail: { comment: comments[0] } }));
 };
 
 class App {
@@ -51,7 +56,6 @@ class App {
         this.answeredIndices = JSON.parse(localStorage.getItem('pu_answered') || '[]');
         this.history = JSON.parse(localStorage.getItem('pu_history') || '[]');
         
-        // Share / Re-eval logic
         this.attemptsLeft = parseInt(localStorage.getItem('pu_attempts') || '0');
         this.sharesDone = parseInt(localStorage.getItem('pu_shares') || '0');
         this.recheckUnlocked = localStorage.getItem('pu_unlocked') === 'true';
@@ -73,23 +77,46 @@ class App {
     }
 
     determineCurrentIndex() {
+        // === Cooldown après 15 questions ===
+        const lastBlock = localStorage.getItem('pu_block_timestamp');
+        const now = Date.now();
+        const cooldown = 1.5 * 60 * 60 * 1000; // 1h30 en ms
+
+        if (lastBlock) {
+            const elapsed = now - parseInt(lastBlock, 10);
+            if (elapsed < cooldown) {
+                this.showToast(`Cooldown actif. Reviens dans ${Math.ceil((cooldown - elapsed)/60000)} min`);
+                return null; // bloqué
+            } else {
+                localStorage.removeItem('pu_block_timestamp');
+                this.answeredIndices = [];
+            }
+        }
+
+        if (this.answeredIndices.length >= 15) {
+            localStorage.setItem('pu_block_timestamp', now.toString());
+            this.showToast("Tu as atteint 15 questions. Cooldown 1h30 activé !");
+            return null;
+        }
+
+        // === Choix aléatoire d'une question non encore répondue ===
         let saved = localStorage.getItem('pu_current_index');
         if (saved !== null) return parseInt(saved);
-        
-        // Pick a new one that hasn't been answered
+
         let available = Array.from({length: DATA.questions.length}, (_, i) => i)
             .filter(i => !this.answeredIndices.includes(i));
-        
+
         if (available.length === 0) {
-            // Pool exhausted, reset or loop
             this.answeredIndices = [];
             available = Array.from({length: DATA.questions.length}, (_, i) => i);
         }
-        
-        const next = available[Math.floor(Math.random() * available.length)];
-        localStorage.setItem('pu_current_index', next);
-        return next;
-    }
+
+    // console.log("Available indices:", available, "Answered indices:", this.answeredIndices);
+    const next = available[Math.floor(Math.random() * available.length)];
+    console.log("Chosen index:", next);
+    localStorage.setItem('pu_current_index', next);
+    return next;
+}
 
     init() {
         this.langSwitcher.value = this.lang;
@@ -99,7 +126,6 @@ class App {
             this.render();
         });
 
-        // Navigation
         document.querySelectorAll('[data-page]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -111,13 +137,11 @@ class App {
 
         window.addEventListener('hashchange', () => this.handleRouting());
 
-        // Refresh check
         if (sessionStorage.getItem('pu_refreshed')) {
             this.showToast(DATA.ui[this.lang].refreshToast);
         }
         sessionStorage.setItem('pu_refreshed', 'true');
 
-        // Listen for real-time comments
         window.addEventListener('comment:created', (data) => {
             if (this.currentPage === 'comments') {
                 this.comments.unshift(data.detail.comment);
@@ -132,28 +156,20 @@ class App {
     handleRouting() {
         const hash = window.location.hash.substring(1);
         const [page, id] = hash.split('/');
-        
         document.querySelectorAll('[data-page]').forEach(l => {
             l.classList.toggle('active', l.getAttribute('data-page') === (page || 'home'));
         });
 
-        if (page === 'response' && id) {
-            this.renderResponseDetail(id);
-        } else {
-            this.navigate(page || 'home');
-        }
+        if (page === 'response' && id) this.renderResponseDetail(id);
+        else this.navigate(page || 'home');
     }
 
-    updateCounter() {
-        this.counterDisplay.innerText = `Q: ${this.score}`;
-    }
+    updateCounter() { this.counterDisplay.innerText = `Q: ${this.score}`; }
 
     showToast(msg) {
-        this.toast.innerText = msg;
+        this.toast.innerText = typeof msg === 'string' ? msg : msg[this.lang] || msg;
         this.toast.style.display = 'block';
-        setTimeout(() => {
-            this.toast.style.display = 'none';
-        }, 3000);
+        setTimeout(() => { this.toast.style.display = 'none'; }, 3000);
     }
 
     navigate(page) {
@@ -165,9 +181,7 @@ class App {
         else if (page === 'comments') this.renderCommentsPage();
     }
 
-    render() {
-        this.navigate(this.currentPage);
-    }
+    render() { this.navigate(this.currentPage); }
 
     
     // =============================
@@ -201,9 +215,22 @@ class App {
 
 
     renderHome() {
+        if (!DATA.questions || DATA.questions.length === 0) {
+            this.container.innerHTML = `<div class="text-center text-white mono">No questions loaded.</div>`;
+            return;
+        }
+
         const q = DATA.questions[this.currentIndex];
-        const ui = DATA.ui[this.lang];
+
+        if (!q) {
+            console.error("Invalid index:", this.currentIndex, "Questions length:", DATA.questions.length);
+            // Choisir un autre index aléatoire sûr
+            this.currentIndex = 0; 
+            return this.renderHome();
+        }
         
+        const ui = DATA.ui[this.lang];
+                    
         
         this.container.innerHTML = `
             <div class="max-w-2xl w-full flex flex-col gap-12 fade-in">
