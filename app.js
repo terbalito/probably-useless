@@ -1,4 +1,4 @@
-import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, GitHub, Send } from 'lucide';
+// import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, GitHub, Send } from 'lucide';
 import { DATA } from './questions.js';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
