@@ -1,5 +1,5 @@
 // import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, GitHub, Send } from 'lucide';
-lucide.createIcons();
+// lucide.createIcons();
 import { DATA } from './questions.js';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -765,4 +765,6 @@ list.innerHTML = this.comments
     }
 }
 
-new App();
+document.addEventListener("DOMContentLoaded", () => {
+    new App();
+});
