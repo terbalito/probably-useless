@@ -1,4 +1,5 @@
 // import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, GitHub, Send } from 'lucide';
+lucide.createIcons();
 import { DATA } from './questions.js';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -287,7 +288,7 @@ class App {
             </div>
         `;
 
-        createIcons({ icons: { Twitter, Linkedin, Clipboard, GitHub } });
+        lucide.createIcons();
         this.attachHomeEvents();
 
         // this.currentIndex = DATA.questions.findIndex(q => q.assertions);
@@ -594,7 +595,7 @@ class App {
                 </div>
             </div>
         `;
-        createIcons({ icons: { Twitter, Linkedin, Github } });
+        lucide.createIcons();
     }
 
     renderHistory() {
@@ -690,7 +691,7 @@ class App {
                 </div>
             </div>
         `;
-        createIcons({ icons: { Send } });
+        lucide.createIcons();
         this.attachAboutEvents(); // Re-use the event attacher as logic is identical
         this.loadComments();
     }
@@ -715,7 +716,7 @@ class App {
                 } finally {
                     postBtn.disabled = false;
                     postBtn.innerHTML = `<i data-lucide="send" class="w-3 h-3"></i> ${DATA.ui[this.lang].postComment}`;
-                    createIcons({ icons: { Send } });
+                    lucide.createIcons();
                 }
             };
         }
