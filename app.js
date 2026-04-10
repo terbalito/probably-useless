@@ -1,4 +1,4 @@
-import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, Github, Send } from 'lucide';
+import { createIcons, Share2, Clipboard, Twitter, Linkedin, Info, GitHub, Send } from 'lucide';
 import { DATA } from './questions.js';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -287,7 +287,7 @@ class App {
             </div>
         `;
 
-        createIcons({ icons: { Twitter, Linkedin, Clipboard } });
+        createIcons({ icons: { Twitter, Linkedin, Clipboard, GitHub } });
         this.attachHomeEvents();
 
         // this.currentIndex = DATA.questions.findIndex(q => q.assertions);
